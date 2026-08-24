@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Owl Adventure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="classroom-container">
+        
+        <!-- Top Text Box -->
+        <div class="text-box-container">
+          <div id="text-display" class="text-display">
+            <!-- Text will be injected here by JS -->
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-container">
+          <button id="restart-btn" class="control-btn">Restart</button>
+          <button id="random-btn" class="control-btn">Random Text</button>
+        </div>
+
+        <!-- Character and Messages Overlay (Hidden by default) -->
+        <div id="owl-overlay" class="owl-overlay hidden">
+          <div class="speech-bubble-container">
+            <div id="speech-bubble" class="speech-bubble"></div>
+          </div>
+          <img id="owl-image" class="owl-image" src="" alt="Owl Teacher" />
+        </div>
+
+        <!-- Confetti Canvas (Hidden by default) -->
+        <canvas id="confetti-canvas" class="confetti-canvas hidden"></canvas>
+
+        <!-- Virtual Keyboard -->
+        <div class="keyboard-container">
+          <div id="keyboard" class="keyboard">
+            <!-- Rows of keys injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  </body>
+</html>
