@@ -16,12 +16,24 @@ const confettiCanvas = document.getElementById('confetti-canvas');
 const restartBtn = document.getElementById('restart-btn');
 const randomBtn = document.getElementById('random-btn');
 
-// Keyboard Layout
-const rows = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['z', 'x', 'c', 'v', 'b', 'n', 'm', '.', ','],
-  [' ']
+const langBtn = document.getElementById('lang-btn');
+
+let currentLang = 'en';
+
+const enRows = [
+  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
+  ['tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\'],
+  ['capslock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'enter'],
+  ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
+  ['control', 'meta', 'alt', ' ', 'alt', 'meta', 'contextmenu', 'control']
+];
+
+const kaRows = [
+  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
+  ['tab', 'ქ', 'წ', 'ე', 'რ', 'ტ', 'ყ', 'უ', 'ი', 'ო', 'პ', '[', ']', '\\'],
+  ['capslock', 'ა', 'ს', 'დ', 'ფ', 'გ', 'ჰ', 'ჯ', 'კ', 'ლ', ';', "'", 'enter'],
+  ['shift', 'ზ', 'ხ', 'ც', 'ვ', 'ბ', 'ნ', 'მ', ',', '.', '/', 'shift'],
+  ['control', 'meta', 'alt', ' ', 'alt', 'meta', 'contextmenu', 'control']
 ];
 
 // Initialize Text Display
@@ -39,6 +51,7 @@ function initTextDisplay() {
 // Initialize Virtual Keyboard
 function initKeyboard() {
   keyboardContainer.innerHTML = '';
+  const rows = currentLang === 'en' ? enRows : kaRows;
   rows.forEach(row => {
     const rowDiv = document.createElement('div');
     rowDiv.classList.add('keyboard-row');
@@ -49,8 +62,17 @@ function initKeyboard() {
         keyDiv.classList.add('space');
         keyDiv.dataset.key = ' ';
       } else {
-        keyDiv.textContent = key;
         keyDiv.dataset.key = key;
+        if (['shift', 'control', 'alt', 'meta', 'backspace', 'tab', 'capslock', 'enter', 'contextmenu'].includes(key)) {
+          const displayKey = { 
+            'control': 'ctrl', 'meta': 'win', 'backspace': 'back', 
+            'capslock': 'caps', 'contextmenu': 'menu'
+          }[key] || key;
+          keyDiv.textContent = displayKey;
+          keyDiv.classList.add({ 'meta': 'win', 'control': 'ctrl', 'backspace': 'back', 'capslock': 'caps', 'contextmenu': 'menu' }[key] || key);
+        } else {
+          keyDiv.textContent = key;
+        }
       }
       
       // Virtual key click support
@@ -67,20 +89,26 @@ function handleInput(key) {
   if (isErrorState || isSuccessState) return;
 
   const expectedChar = targetText[currentIndex];
+  const normalizedKey = key.toLowerCase();
   
-  // Highlight virtual key
-  const virtualKey = document.querySelector(`.key[data-key="${key.toLowerCase()}"]`) || 
-                     (key === ' ' ? document.querySelector('.key.space') : null);
+  // Highlight virtual keys
+  const virtualKeys = normalizedKey === ' ' 
+    ? [document.querySelector('.key.space')]
+    : document.querySelectorAll(`.key[data-key="${normalizedKey}"]`);
   
-  if (virtualKey) {
-    virtualKey.classList.add('active');
-    setTimeout(() => virtualKey.classList.remove('active'), 150);
+  virtualKeys.forEach(virtualKey => {
+    if (virtualKey) {
+      virtualKey.classList.add('active');
+      setTimeout(() => virtualKey.classList.remove('active'), 150);
+    }
+  });
+
+  // Ignore modifier keys for typing evaluation
+  if (['shift', 'control', 'alt', 'meta', 'capslock', 'tab', 'backspace', 'enter', 'contextmenu'].includes(normalizedKey)) {
+    return;
   }
 
-  // Handle Shift or other modifiers if needed, but our text uses uppercase.
-  // We'll compare characters directly (case-sensitive) or we could simplify.
-  // The requirement just says "type completely correctly".
-  // Let's do exact match.
+  // Evaluate typing
   if (key === expectedChar) {
     handleCorrectTyping();
   } else if (key.length === 1) { // Only handle single character presses as errors
@@ -182,15 +210,21 @@ function restart() {
   initTextDisplay();
 }
 
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'ka' : 'en';
+  langBtn.textContent = `Lang: ${currentLang.toUpperCase()}`;
+  initKeyboard();
+}
+
 restartBtn.addEventListener('click', restart);
 randomBtn.addEventListener('click', loadRandomText);
+langBtn.addEventListener('click', toggleLanguage);
 
 // Listen to physical keyboard
 window.addEventListener('keydown', (e) => {
-  if (e.key === 'Shift' || e.key === 'CapsLock' || e.key === 'Tab') return;
-  
-  // Prevent default scrolling for spacebar
+  // Prevent default scrolling for spacebar and shortcuts that might interfere
   if (e.key === ' ') e.preventDefault();
+  if (e.altKey && e.key.length === 1) e.preventDefault(); 
 
   handleInput(e.key);
 });

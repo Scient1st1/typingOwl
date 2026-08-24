@@ -165,11 +165,11 @@ body {
   border: 3px solid var(--key-border);
   border-radius: 12px;
   font-family: "Fredoka", sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #555;
-  width: 56px;
-  height: 64px;
+  width: 48px;
+  height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,7 +190,31 @@ body {
 }
 
 .key.space {
-  width: 350px;
+  width: 254px;
+}
+
+.key.shift {
+  width: 96px;
+}
+
+.key.ctrl, .key.alt, .key.win, .key.menu {
+  width: 60px;
+}
+
+.key.back {
+  width: 85px;
+}
+
+.key.tab {
+  width: 75px;
+}
+
+.key.caps {
+  width: 85px;
+}
+
+.key.enter {
+  width: 90px;
 }
 
 /* Owl Overlay */
