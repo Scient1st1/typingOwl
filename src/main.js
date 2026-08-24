@@ -1,6 +1,7 @@
 import textsData from "./texts.json";
 
 const textDisplay = document.getElementById("text-display");
+const mobileInput = document.getElementById("mobile-input");
 const keyboardContainer = document.getElementById("keyboard");
 const owlOverlay = document.getElementById("owl-overlay");
 const owlImage = document.getElementById("owl-image");
@@ -218,8 +219,9 @@ function initKeyboard() {
         }
       }
 
-      // Virtual key click support
-      keyDiv.addEventListener("mousedown", () => {
+      // Virtual key click support for mouse and touch devices
+      const onVirtualKeyPress = (e) => {
+        e.preventDefault(); // Prevent double firing on touch + click
         if (key === "shift") {
           isVirtualShift = !isVirtualShift;
           updateKeyboardVisuals();
@@ -245,7 +247,10 @@ function initKeyboard() {
           isVirtualShift = false;
           updateKeyboardVisuals();
         }
-      });
+      };
+
+      // Only listen to touch events, ignore mouse clicks as requested
+      keyDiv.addEventListener("touchstart", onVirtualKeyPress);
 
       rowDiv.appendChild(keyDiv);
     });
@@ -559,6 +564,27 @@ window.addEventListener("keyup", (e) => {
   if (e.key === "Shift") {
     isShiftPressed = false;
     updateKeyboardVisuals();
+  }
+});
+
+// Mobile Native Keyboard Support
+const textBoxContainer = document.querySelector(".text-box-container");
+textBoxContainer.addEventListener("click", () => {
+  mobileInput.focus();
+  startAudio(); // Start audio when they tap the text box
+});
+
+mobileInput.addEventListener("input", (e) => {
+  if (mobileInput.value.length > 0) {
+    const char = mobileInput.value.slice(-1);
+    handleInput(char);
+    mobileInput.value = ""; // Reset to keep capturing
+  }
+});
+
+mobileInput.addEventListener("keydown", (e) => {
+  if (e.key === "Backspace") {
+    handleInput("Backspace");
   }
 });
 
