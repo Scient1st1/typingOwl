@@ -220,14 +220,18 @@ function showOwlError() {
   // Using a data URI with an SVG emoji since image generation is unavailable
   owlImage.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🦉</text></svg>'; 
   owlImage.style.filter = 'drop-shadow(0 10px 15px rgba(255,0,0,0.4)) grayscale(30%)';
+  owlImage.classList.remove('owl-smile');
+  owlImage.classList.add('owl-shake');
   speechBubble.textContent = 'Oopsie! Check that letter again!';
   speechBubble.className = 'speech-bubble error';
   owlOverlay.classList.remove('hidden');
 }
 
 function showOwlSuccess() {
-  owlImage.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🦉</text></svg>';
+  owlImage.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🦉</text><path d="M 35 65 Q 50 85 65 65" stroke="%23ff3366" stroke-width="4" stroke-linecap="round" fill="transparent"/></svg>';
   owlImage.style.filter = 'drop-shadow(0 10px 15px rgba(0,255,0,0.4)) hue-rotate(30deg) brightness(1.2)';
+  owlImage.classList.remove('owl-shake');
+  owlImage.classList.add('owl-smile');
   speechBubble.textContent = 'Awesome Job! You did it!';
   speechBubble.className = 'speech-bubble success';
   owlOverlay.classList.remove('hidden');
@@ -235,6 +239,7 @@ function showOwlSuccess() {
 
 function hideOwl() {
   owlOverlay.classList.add('hidden');
+  owlImage.classList.remove('owl-shake', 'owl-smile');
 }
 
 function handleSuccess() {
