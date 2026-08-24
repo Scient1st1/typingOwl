@@ -26,7 +26,8 @@
         <div class="controls-container">
           <button id="restart-btn" class="control-btn">Restart</button>
           <button id="random-btn" class="control-btn">Random Text</button>
-          <button id="lang-btn" class="control-btn">Lang: EN</button>
+          <button id="lang-btn" class="control-btn">Lang: </button>
+          <button id="pdf-btn" class="control-btn hidden">Save PDF</button>
         </div>
 
         <!-- Character and Messages Overlay (Hidden by default) -->
@@ -48,6 +49,23 @@
         </div>
       </div>
     </div>
+
+    <!-- Hidden Certificate for PDF -->
+    <div id="certificate" class="certificate-container">
+      <div class="cert-border-inner">
+        <h1 class="cert-title">🌟 Typing Owl Certificate 🌟</h1>
+        <p class="cert-subtitle">
+          This certifies that you are an AMAZING typist! 🏆
+        </p>
+        <div class="cert-stats">
+          <p id="cert-accuracy">🎯 Accuracy: 100%</p>
+        </div>
+        <div class="cert-footer">
+          <p>Keep up the great work, superstar! 🦉✨</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script type="module" src="/src/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   </body>
