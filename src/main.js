@@ -1,12 +1,5 @@
 import textsData from './texts.json';
 
-let targetText = "";
-
-let currentIndex = 0;
-let isErrorState = false;
-let isSuccessState = false;
-
-// DOM Elements
 const textDisplay = document.getElementById('text-display');
 const keyboardContainer = document.getElementById('keyboard');
 const owlOverlay = document.getElementById('owl-overlay');
@@ -15,10 +8,11 @@ const speechBubble = document.getElementById('speech-bubble');
 const confettiCanvas = document.getElementById('confetti-canvas');
 const restartBtn = document.getElementById('restart-btn');
 const randomBtn = document.getElementById('random-btn');
-
 const langBtn = document.getElementById('lang-btn');
 
 let currentLang = 'en';
+let isShiftPressed = false;
+let isVirtualShift = false;
 
 const enRows = [
   ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
@@ -28,13 +22,21 @@ const enRows = [
   ['control', 'meta', 'alt', ' ', 'alt', 'meta', 'contextmenu', 'control']
 ];
 
-const kaRows = [
-  ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'],
-  ['tab', 'ქ', 'წ', 'ე', 'რ', 'ტ', 'ყ', 'უ', 'ი', 'ო', 'პ', '[', ']', '\\'],
-  ['capslock', 'ა', 'ს', 'დ', 'ფ', 'გ', 'ჰ', 'ჯ', 'კ', 'ლ', ';', "'", 'enter'],
-  ['shift', 'ზ', 'ხ', 'ც', 'ვ', 'ბ', 'ნ', 'მ', ',', '.', '/', 'shift'],
-  ['control', 'meta', 'alt', ' ', 'alt', 'meta', 'contextmenu', 'control']
-];
+const enToKaBase = {
+  'q': 'ქ', 'w': 'წ', 'e': 'ე', 'r': 'რ', 't': 'ტ', 'y': 'ყ', 'u': 'უ', 'i': 'ი', 'o': 'ო', 'p': 'პ',
+  'a': 'ა', 's': 'ს', 'd': 'დ', 'f': 'ფ', 'g': 'გ', 'h': 'ჰ', 'j': 'ჯ', 'k': 'კ', 'l': 'ლ',
+  'z': 'ზ', 'x': 'ხ', 'c': 'ც', 'v': 'ვ', 'b': 'ბ', 'n': 'ნ', 'm': 'მ'
+};
+
+const enToKaShift = {
+  'w': 'ჭ', 'W': 'ჭ', 'r': 'ღ', 'R': 'ღ', 't': 'თ', 'T': 'თ', 's': 'შ', 'S': 'შ', 
+  'j': 'ჟ', 'J': 'ჟ', 'z': 'ძ', 'Z': 'ძ', 'c': 'ჩ', 'C': 'ჩ'
+};
+
+let targetText = '';
+let currentIndex = 0;
+let isErrorState = false;
+let isSuccessState = false;
 
 // Initialize Text Display
 function initTextDisplay() {
@@ -48,16 +50,48 @@ function initTextDisplay() {
   }
 }
 
+// Update visuals without rebuilding DOM
+function updateKeyboardVisuals() {
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(keyDiv => {
+    const key = keyDiv.dataset.key;
+    if (['shift', 'control', 'alt', 'meta', 'backspace', 'tab', 'capslock', 'enter', 'contextmenu', ' '].includes(key)) {
+      if (key === 'shift') {
+        if (isShiftPressed || isVirtualShift) {
+          keyDiv.classList.add('active-toggle');
+        } else {
+          keyDiv.classList.remove('active-toggle');
+        }
+      }
+      return;
+    }
+    
+    if (currentLang === 'ka') {
+      if (isShiftPressed || isVirtualShift) {
+        keyDiv.textContent = enToKaShift[key] || enToKaBase[key] || key;
+      } else {
+        keyDiv.textContent = enToKaBase[key] || key;
+      }
+    } else {
+      if (isShiftPressed || isVirtualShift) {
+        keyDiv.textContent = key.toUpperCase();
+      } else {
+        keyDiv.textContent = key;
+      }
+    }
+  });
+}
+
 // Initialize Virtual Keyboard
 function initKeyboard() {
   keyboardContainer.innerHTML = '';
-  const rows = currentLang === 'en' ? enRows : kaRows;
-  rows.forEach(row => {
+  enRows.forEach(row => {
     const rowDiv = document.createElement('div');
     rowDiv.classList.add('keyboard-row');
     row.forEach(key => {
       const keyDiv = document.createElement('div');
       keyDiv.classList.add('key');
+      
       if (key === ' ') {
         keyDiv.classList.add('space');
         keyDiv.dataset.key = ' ';
@@ -76,12 +110,27 @@ function initKeyboard() {
       }
       
       // Virtual key click support
-      keyDiv.addEventListener('mousedown', () => handleInput(key));
+      keyDiv.addEventListener('mousedown', () => {
+        if (key === 'shift') {
+          isVirtualShift = !isVirtualShift;
+          updateKeyboardVisuals();
+          return;
+        }
+        
+        handleInput(key);
+        
+        // Auto-disable virtual shift after a letter is typed
+        if (isVirtualShift && !['control', 'alt', 'meta', 'capslock', 'tab', 'backspace', 'enter', 'contextmenu'].includes(key)) {
+          isVirtualShift = false;
+          updateKeyboardVisuals();
+        }
+      });
       
       rowDiv.appendChild(keyDiv);
     });
     keyboardContainer.appendChild(rowDiv);
   });
+  updateKeyboardVisuals();
 }
 
 // Handle Input (Physical or Virtual)
@@ -89,12 +138,34 @@ function handleInput(key) {
   if (isErrorState || isSuccessState) return;
 
   const expectedChar = targetText[currentIndex];
-  const normalizedKey = key.toLowerCase();
+
+  let mappedKey = key;
+  if (currentLang === 'ka' && !/[ა-ჰ]/.test(key)) {
+     if ((key >= 'A' && key <= 'Z') || isShiftPressed || isVirtualShift) {
+        mappedKey = enToKaShift[key.toLowerCase()] || enToKaBase[key.toLowerCase()] || key;
+     } else {
+        mappedKey = enToKaBase[key.toLowerCase()] || key;
+     }
+  } else if (currentLang === 'en') {
+    if (key.length === 1 && (isShiftPressed || isVirtualShift) && key >= 'a' && key <= 'z') {
+      mappedKey = key.toUpperCase();
+    }
+  }
   
-  // Highlight virtual keys
-  const virtualKeys = normalizedKey === ' ' 
+  // Highlight virtual keys based on layout reverse mapping
+  let highlightKey = key.toLowerCase();
+  if (currentLang === 'ka' && /[ა-ჰ]/.test(highlightKey)) {
+     const entry = Object.entries(enToKaBase).find(([k, v]) => v === highlightKey);
+     if (entry) highlightKey = entry[0];
+     else {
+       const shiftEntry = Object.entries(enToKaShift).find(([k, v]) => v === highlightKey);
+       if (shiftEntry) highlightKey = shiftEntry[0].toLowerCase();
+     }
+  }
+
+  const virtualKeys = highlightKey === ' ' 
     ? [document.querySelector('.key.space')]
-    : document.querySelectorAll(`.key[data-key="${normalizedKey}"]`);
+    : document.querySelectorAll(`.key[data-key="${highlightKey}"]`);
   
   virtualKeys.forEach(virtualKey => {
     if (virtualKey) {
@@ -104,14 +175,14 @@ function handleInput(key) {
   });
 
   // Ignore modifier keys for typing evaluation
-  if (['shift', 'control', 'alt', 'meta', 'capslock', 'tab', 'backspace', 'enter', 'contextmenu'].includes(normalizedKey)) {
+  if (['shift', 'control', 'alt', 'meta', 'capslock', 'tab', 'backspace', 'enter', 'contextmenu'].includes(highlightKey)) {
     return;
   }
 
   // Evaluate typing
-  if (key === expectedChar) {
+  if (mappedKey === expectedChar) {
     handleCorrectTyping();
-  } else if (key.length === 1) { // Only handle single character presses as errors
+  } else if (mappedKey.length === 1) { // Only handle single character presses as errors
     handleIncorrectTyping();
   }
 }
@@ -198,7 +269,7 @@ function handleSuccess() {
 
 function loadRandomText() {
   const randomIndex = Math.floor(Math.random() * textsData.length);
-  targetText = textsData[randomIndex].text;
+  targetText = currentLang === 'en' ? textsData[randomIndex].text : textsData[randomIndex].text_ka;
   restart();
 }
 
@@ -213,7 +284,8 @@ function restart() {
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'ka' : 'en';
   langBtn.textContent = `Lang: ${currentLang.toUpperCase()}`;
-  initKeyboard();
+  updateKeyboardVisuals();
+  loadRandomText();
 }
 
 restartBtn.addEventListener('click', restart);
@@ -222,11 +294,23 @@ langBtn.addEventListener('click', toggleLanguage);
 
 // Listen to physical keyboard
 window.addEventListener('keydown', (e) => {
+  if (e.key === 'Shift') {
+    isShiftPressed = true;
+    updateKeyboardVisuals();
+  }
+
   // Prevent default scrolling for spacebar and shortcuts that might interfere
   if (e.key === ' ') e.preventDefault();
   if (e.altKey && e.key.length === 1) e.preventDefault(); 
 
   handleInput(e.key);
+});
+
+window.addEventListener('keyup', (e) => {
+  if (e.key === 'Shift') {
+    isShiftPressed = false;
+    updateKeyboardVisuals();
+  }
 });
 
 // Init

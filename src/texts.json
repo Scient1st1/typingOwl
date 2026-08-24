@@ -1,202 +1,252 @@
 [
   {
     "id": 1,
-    "text": "The friendly brown puppy ran fast in the green park. He chased a bright yellow ball under the tall trees and wagged his tail happily. After a while, he rested on the soft grass."
+    "text": "The friendly brown puppy ran fast in the green park. He chased a bright yellow ball under the tall trees.",
+    "text_ka": "მეგობრული ყავისფერი ლეკვი სწრაფად დარბოდა მწვანე პარკში. ის დასდევდა კაშკაშა ყვითელ ბურთს მაღალი ხეების ქვეშ."
   },
   {
     "id": 2,
-    "text": "The little girl walked to school with her blue backpack. She smiled when she saw her best friend at the gate. They walked to the classroom together and talked about their weekend."
+    "text": "The little girl walked to school with her blue backpack. She smiled when she saw her best friend at the gate.",
+    "text_ka": "პატარა გოგონა სკოლაში მიდიოდა თავისი ლურჯი ზურგჩანთით. მან გაიღიმა, როდესაც დაინახა თავისი საუკეთესო მეგობარი ჭიშკართან."
   },
   {
     "id": 3,
-    "text": "A happy rabbit hopped across the soft green grass. It stopped near a small red flower and looked around carefully. Then it jumped behind a bush and disappeared into the garden."
+    "text": "A happy rabbit hopped across the soft green grass. It stopped near a small red flower and looked around.",
+    "text_ka": "ბედნიერი კურდღელი ხტუნავდა რბილ მწვანე ბალახზე. ის შეჩერდა პატარა წითელ ყვავილთან და მიმოიხედა."
   },
   {
     "id": 4,
-    "text": "The bright sun shone over the quiet town. Birds flew across the blue sky while people walked outside. Children played in the park, and families enjoyed the warm afternoon together."
+    "text": "The bright sun shone over the quiet town. Birds flew across the blue sky while people walked outside.",
+    "text_ka": "კაშკაშა მზე ანათებდა წყნარ ქალაქს. ჩიტები დაფრინავდნენ ლურჯ ცაზე, სანამ ხალხი გარეთ სეირნობდა."
   },
   {
     "id": 5,
-    "text": "Tom found a shiny red kite in his room. He took it outside and watched it fly high above the trees. The wind pushed the kite across the blue sky while Tom held the string tightly."
+    "text": "Tom found a shiny red kite in his room. He took it outside and watched it fly high above the trees.",
+    "text_ka": "ტომმა თავის ოთახში იპოვა მბზინავი წითელი ფრანი. მან გარეთ გაიტანა და უყურებდა, როგორ დაფრინავდა მაღლა ხეების თავზე."
   },
   {
     "id": 6,
-    "text": "The small cat sat beside the warm window. She watched the birds and listened to the rain outside. After the rain stopped, she jumped down and walked quietly around the house."
+    "text": "The small cat sat beside the warm window. She watched the birds and listened to the rain outside.",
+    "text_ka": "პატარა კატა იჯდა თბილ ფანჯარასთან. ის უყურებდა ჩიტებს და უსმენდა წვიმას გარეთ."
   },
   {
     "id": 7,
-    "text": "My family went to the park on Sunday morning. We played games, ate sandwiches, and laughed together. My brother kicked a ball while I played with our dog near the big trees."
+    "text": "My family went to the park on Sunday morning. We played games, ate sandwiches, and laughed together.",
+    "text_ka": "ჩემი ოჯახი კვირა დილით პარკში წავიდა. ჩვენ ვითამაშეთ, ვჭამეთ სენდვიჩები და ერთად ვიცინეთ."
   },
   {
     "id": 8,
-    "text": "The young boy rode his green bicycle down the street. He wore a yellow helmet and waved to his neighbor. When he reached the park, he stopped to drink some water and rest."
+    "text": "The young boy rode his green bicycle down the street. He wore a yellow helmet and waved to his neighbor.",
+    "text_ka": "ახალგაზრდა ბიჭი მიდიოდა ქუჩაში თავისი მწვანე ველოსიპედით. მას ეხურა ყვითელი ჩაფხუტი და დაუქნია ხელი თავის მეზობელს."
   },
   {
     "id": 9,
-    "text": "A tiny blue bird landed on the old fence. It sang a cheerful song before flying into the trees. Another bird joined it, and soon both birds were singing together."
+    "text": "A tiny blue bird landed on the old fence. It sang a cheerful song before flying into the trees.",
+    "text_ka": "პატარა ლურჯი ჩიტი დაჯდა ძველ ღობეზე. მან იმღერა მხიარული სიმღერა, სანამ ხეებში გაფრინდებოდა."
   },
   {
     "id": 10,
-    "text": "Sarah opened her lunch box at school. She found a red apple, a cheese sandwich, and a sweet cookie. She shared her cookie with her friend before going outside to play."
+    "text": "Sarah opened her lunch box at school. She found a red apple, a cheese sandwich, and a sweet cookie.",
+    "text_ka": "სარამ სკოლაში გახსნა თავისი ლანჩბოქსი. მან იპოვა წითელი ვაშლი, ყველის სენდვიჩი და ტკბილი ორცხობილა."
   },
   {
     "id": 11,
-    "text": "The brown horse ran across the wide field. Its long mane moved in the cool morning wind. When the horse reached the fence, it stopped and looked at the farmer."
+    "text": "The brown horse ran across the wide field. Its long mane moved in the cool morning wind.",
+    "text_ka": "ყავისფერი ცხენი დარბოდა ფართო მინდორზე. მისი გრძელი ფაფარი მოძრაობდა გრილ დილის ქარში."
   },
   {
     "id": 12,
-    "text": "We planted small flowers in our garden. The flowers grew slowly and brought many colorful butterflies. Every morning, we gave them water and checked the leaves for tiny bugs."
+    "text": "We planted small flowers in our garden. The flowers grew slowly and brought many colorful butterflies.",
+    "text_ka": "ჩვენ დავრგეთ პატარა ყვავილები ჩვენს ბაღში. ყვავილები ნელა იზრდებოდა და მოიზიდა ბევრი ფერადი პეპელა."
   },
   {
     "id": 13,
-    "text": "The children built a tall sandcastle at the beach. They used shells and small stones to decorate it. When they finished, they made a little road around the castle with their hands."
+    "text": "The children built a tall sandcastle at the beach. They used shells and small stones to decorate it.",
+    "text_ka": "ბავშვებმა სანაპიროზე მაღალი ქვიშის ციხესიმაგრე ააშენეს. მათ გამოიყენეს ნიჟარები და პატარა ქვები მის გასაფორმებლად."
   },
   {
     "id": 14,
-    "text": "A bright orange fish swam around the little pond. It hid behind a large green plant when someone came close. After a few minutes, it came out and swam around the pond again."
+    "text": "A bright orange fish swam around the little pond. It hid behind a large green plant.",
+    "text_ka": "კაშკაშა ნარინჯისფერი თევზი დაცურავდა პატარა აუზში. ის დაიმალა დიდი მწვანე მცენარის უკან."
   },
   {
     "id": 15,
-    "text": "Jack woke up early on Saturday morning. He opened the curtains and saw snow covering the ground. He quickly put on his warm coat and went outside to build a small snowman."
+    "text": "Jack woke up early on Saturday morning. He opened the curtains and saw snow covering the ground.",
+    "text_ka": "ჯეკმა შაბათს დილით ადრე გაიღვიძა. მან გადასწია ფარდები და დაინახა თოვლით დაფარული მიწა."
   },
   {
     "id": 16,
-    "text": "The friendly dog waited by the front door. He wanted to go outside and play with his red ball. When the door opened, he ran into the yard and jumped happily."
+    "text": "The friendly dog waited by the front door. He wanted to go outside and play with his red ball.",
+    "text_ka": "მეგობრული ძაღლი ელოდებოდა წინა კართან. მას უნდოდა გარეთ გასვლა და თავისი წითელი ბურთით თამაში."
   },
   {
     "id": 17,
-    "text": "Emma carried a basket into the garden. She picked three ripe apples from the small tree. Then she found two more apples under the leaves and placed them carefully in her basket."
+    "text": "Emma carried a basket into the garden. She picked three ripe apples from the small tree.",
+    "text_ka": "ემამ ბაღში კალათა შეიტანა. მან მოწყვიტა სამი მწიფე ვაშლი პატარა ხიდან."
   },
   {
     "id": 18,
-    "text": "The old train moved slowly through the green hills. We looked out the window and watched the beautiful view. We saw small houses, tall trees, and a river shining in the sunlight."
+    "text": "The old train moved slowly through the green hills. We looked out the window and watched the beautiful view.",
+    "text_ka": "ძველი მატარებელი ნელა მიდიოდა მწვანე ბორცვებში. ჩვენ ვიყურებოდით ფანჯარაში და ვადევნებდით თვალს ლამაზ ხედს."
   },
   {
     "id": 19,
-    "text": "A little frog jumped into the cool pond. It made a tiny splash and disappeared under the water. A few seconds later, it popped its head out and sat on a green leaf."
+    "text": "A little frog jumped into the cool pond. It made a tiny splash and disappeared under the water.",
+    "text_ka": "პატარა ბაყაყი ჩახტა გრილ აუზში. მან პატარა ტყაპანი გააკეთა და წყლის ქვეშ გაუჩინარდა."
   },
   {
     "id": 20,
-    "text": "The boys played soccer on the school field. Their teacher watched and cheered when they scored a goal. Everyone ran across the grass and celebrated with big smiles."
+    "text": "The boys played soccer on the school field. Their teacher watched and cheered when they scored a goal.",
+    "text_ka": "ბიჭები თამაშობდნენ ფეხბურთს სკოლის მოედანზე. მათი მასწავლებელი უყურებდა და ამხნევებდა, როდესაც გოლი გაჰქონდათ."
   },
   {
     "id": 21,
-    "text": "Mia found a colorful book on the library shelf. She sat in a quiet chair and began to read. The story was about a brave girl who traveled to a magical forest."
+    "text": "Mia found a colorful book on the library shelf. She sat in a quiet chair and began to read.",
+    "text_ka": "მიამ ბიბლიოთეკის თაროზე იპოვა ფერადი წიგნი. ის დაჯდა წყნარ სკამზე და დაიწყო კითხვა."
   },
   {
     "id": 22,
-    "text": "The tall trees moved gently in the wind. Small leaves fell onto the brown path below. Two children walked along the path and collected their favorite leaves to take home."
+    "text": "The tall trees moved gently in the wind. Small leaves fell onto the brown path below.",
+    "text_ka": "მაღალი ხეები ნაზად მოძრაობდნენ ქარში. პატარა ფოთლები ცვიოდა ქვემოთ, ყავისფერ ბილიკზე."
   },
   {
     "id": 23,
-    "text": "Grandpa made warm pancakes for breakfast. He added fresh berries and a little honey on top. Everyone sat around the table and enjoyed the delicious breakfast together."
+    "text": "Grandpa made warm pancakes for breakfast. He added fresh berries and a little honey on top.",
+    "text_ka": "ბაბუამ საუზმისთვის თბილი ბლინები გააკეთა. მან დაამატა ახალი კენკრა და ცოტა თაფლი ზემოდან."
   },
   {
     "id": 24,
-    "text": "The family drove to the lake after lunch. They watched ducks swim near the wooden dock. Dad took pictures while the children threw small pieces of bread near the water."
+    "text": "The family drove to the lake after lunch. They watched ducks swim near the wooden dock.",
+    "text_ka": "ოჯახი ტბაზე წავიდა ლანჩის შემდეგ. ისინი უყურებდნენ, როგორ ცურავდნენ იხვები ხის ნავმისადგომთან."
   },
   {
     "id": 25,
-    "text": "A small yellow butterfly flew over the garden. It landed on a purple flower for a few seconds. Then it opened its wings and flew toward the tall green bushes."
+    "text": "A small yellow butterfly flew over the garden. It landed on a purple flower for a few seconds.",
+    "text_ka": "პატარა ყვითელი პეპელა დაფრინავდა ბაღში. ის დაჯდა მეწამულ ყვავილზე რამდენიმე წამით."
   },
   {
     "id": 26,
-    "text": "The children played hide and seek after school. Everyone laughed when Ben hid behind the big tree. Emma found him first, and then it was her turn to hide."
+    "text": "The children played hide and seek after school. Everyone laughed when Ben hid behind the big tree.",
+    "text_ka": "ბავშვებმა ითამაშეს დამალობანა სკოლის შემდეგ. ყველა იცინოდა, როდესაც ბენი დაიმალა დიდი ხის უკან."
   },
   {
     "id": 27,
-    "text": "Lily packed her favorite toys into a small box. She wanted to share them with her cousin. When her cousin arrived, they opened the box and played together on the floor."
+    "text": "Lily packed her favorite toys into a small box. She wanted to share them with her cousin.",
+    "text_ka": "ლილიმ ჩაალაგა თავისი საყვარელი სათამაშოები პატარა ყუთში. მას უნდოდა მათი განაწილება თავის ბიძაშვილთან."
   },
   {
     "id": 28,
-    "text": "The gray clouds moved across the sky. Soon, soft rain began to fall on the quiet street. People opened their umbrellas while the children watched the raindrops from the window."
+    "text": "The gray clouds moved across the sky. Soon, soft rain began to fall on the quiet street.",
+    "text_ka": "ნაცრისფერი ღრუბლები მოძრაობდა ცაზე. მალე რბილი წვიმა დაიწყო წყნარ ქუჩაზე."
   },
   {
     "id": 29,
-    "text": "A young fox walked through the forest. It stopped beside a tree and listened to the sounds around it. Then it quietly followed a narrow path toward a small stream."
+    "text": "A young fox walked through the forest. It stopped beside a tree and listened to the sounds around it.",
+    "text_ka": "ახალგაზრდა მელა დადიოდა ტყეში. ის შეჩერდა ხესთან და უსმენდა გარშემო არსებულ ხმებს."
   },
   {
     "id": 30,
-    "text": "The baker made fresh bread early in the morning. The warm smell filled the small shop. Customers came inside, bought bread, and thanked the baker for the delicious food."
+    "text": "The baker made fresh bread early in the morning. The warm smell filled the small shop.",
+    "text_ka": "მცხობელმა დილით ადრე გააკეთა ახალი პური. თბილმა სურნელმა აავსო პატარა მაღაზია."
   },
   {
     "id": 31,
-    "text": "Sam opened the garden gate and walked inside. He saw bright flowers growing beside the stone path. A small bee flew from one flower to another while Sam watched quietly."
+    "text": "Sam opened the garden gate and walked inside. He saw bright flowers growing beside the stone path.",
+    "text_ka": "სემმა გააღო ბაღის ჭიშკარი და შევიდა შიგნით. მან დაინახა კაშკაშა ყვავილები, რომლებიც იზრდებოდა ქვის ბილიკთან."
   },
   {
     "id": 32,
-    "text": "The little girl drew a picture of her family. She used many bright colors and added a big yellow sun. When she finished, she showed the picture to her parents with a proud smile."
+    "text": "The little girl drew a picture of her family. She used many bright colors and added a big yellow sun.",
+    "text_ka": "პატარა გოგონამ დახატა თავისი ოჯახის სურათი. მან გამოიყენა ბევრი კაშკაშა ფერი და დაამატა დიდი ყვითელი მზე."
   },
   {
     "id": 33,
-    "text": "A playful puppy jumped into a pile of soft leaves. He rolled around and wagged his tail happily. His owner laughed and threw a small stick for him to chase."
+    "text": "A playful puppy jumped into a pile of soft leaves. He rolled around and wagged his tail happily.",
+    "text_ka": "მხიარული ლეკვი ჩახტა რბილი ფოთლების გროვაში. ის გორაობდა და ბედნიერად აქიცინებდა კუდს."
   },
   {
     "id": 34,
-    "text": "The moon appeared above the quiet houses. The stars twinkled brightly in the dark night sky. A family sat outside for a few minutes and looked up at the beautiful stars."
+    "text": "The moon appeared above the quiet houses. The stars twinkled brightly in the dark night sky.",
+    "text_ka": "მთვარე გამოჩნდა წყნარი სახლების თავზე. ვარსკვლავები კაშკაშად ციმციმებდნენ ბნელ ღამის ცაზე."
   },
   {
     "id": 35,
-    "text": "We visited the farm on a sunny afternoon. We saw cows, chickens, horses, and a small brown goat. The farmer showed us the barn and told us how he cared for the animals."
+    "text": "We visited the farm on a sunny afternoon. We saw cows, chickens, horses, and a small brown goat.",
+    "text_ka": "ჩვენ ვესტუმრეთ ფერმას მზიან შუადღეს. ჩვენ დავინახეთ ძროხები, ქათმები, ცხენები და პატარა ყავისფერი თხა."
   },
   {
     "id": 36,
-    "text": "The red bus stopped near the school. The children climbed aboard and found their seats. They talked quietly with their friends while the driver carefully drove through the busy streets."
+    "text": "The red bus stopped near the school. The children climbed aboard and found their seats.",
+    "text_ka": "წითელი ავტობუსი გაჩერდა სკოლის მახლობლად. ბავშვები ავიდნენ და იპოვეს თავიანთი ადგილები."
   },
   {
     "id": 37,
-    "text": "A small bird built a nest in the tall tree. It carried tiny pieces of grass to make it comfortable. After several days, the nest was ready for the bird's eggs."
+    "text": "A small bird built a nest in the tall tree. It carried tiny pieces of grass to make it comfortable.",
+    "text_ka": "პატარა ჩიტმა ააშენა ბუდე მაღალ ხეზე. მას მიჰქონდა ბალახის პატარა ნაჭრები მის კომფორტულად გასაკეთებლად."
   },
   {
     "id": 38,
-    "text": "Daniel cleaned his room before dinner. He put his books on the shelf and his toys in a box. When everything was clean, he found his favorite toy under the bed."
+    "text": "Daniel cleaned his room before dinner. He put his books on the shelf and his toys in a box.",
+    "text_ka": "დანიელმა დაალაგა თავისი ოთახი სადილის წინ. მან თავისი წიგნები თაროზე დადო, ხოლო სათამაშოები ყუთში."
   },
   {
     "id": 39,
-    "text": "The family walked along the beach at sunset. The sky turned pink, orange, and gold. The children collected small shells while their parents walked slowly beside the water."
+    "text": "The family walked along the beach at sunset. The sky turned pink, orange, and gold.",
+    "text_ka": "ოჯახი სეირნობდა სანაპიროზე მზის ჩასვლისას. ცა გახდა ვარდისფერი, ნარინჯისფერი და ოქროსფერი."
   },
   {
     "id": 40,
-    "text": "A green frog sat on a flat rock. It watched the water and waited for a small insect. When a bug flew nearby, the frog jumped quickly and then returned to the rock."
+    "text": "A green frog sat on a flat rock. It watched the water and waited for a small insect.",
+    "text_ka": "მწვანე ბაყაყი იჯდა ბრტყელ ქვაზე. ის უყურებდა წყალს და ელოდებოდა პატარა მწერს."
   },
   {
     "id": 41,
-    "text": "The teacher wrote a fun story on the board. The students listened carefully and asked many questions. At the end of the lesson, everyone wrote a few sentences about the story."
+    "text": "The teacher wrote a fun story on the board. The students listened carefully and asked many questions.",
+    "text_ka": "მასწავლებელმა დაფაზე დაწერა სახალისო ისტორია. მოსწავლეები ყურადღებით უსმენდნენ და ბევრ კითხვას სვამდნენ."
   },
   {
     "id": 42,
-    "text": "Lucy baked chocolate cookies with her mother. They mixed the ingredients and placed the cookies on a tray. After baking, they waited patiently while the cookies cooled on the table."
+    "text": "Lucy baked chocolate cookies with her mother. They waited patiently while the cookies cooled.",
+    "text_ka": "ლუსიმ გამოაცხო შოკოლადის ორცხობილები თავის დედასთან ერთად. ისინი მოთმინებით ელოდებოდნენ, სანამ ორცხობილები გაცივდებოდა."
   },
   {
     "id": 43,
-    "text": "The boy picked up his blue umbrella before leaving home. Dark clouds were growing above the town. He walked quickly to school and arrived just before the rain began."
+    "text": "The boy picked up his blue umbrella before leaving home. Dark clouds were growing above the town.",
+    "text_ka": "ბიჭმა აიღო თავისი ლურჯი ქოლგა სახლიდან გასვლამდე. ქალაქის თავზე შავი ღრუბლები გროვდებოდა."
   },
   {
     "id": 44,
-    "text": "A beautiful rainbow appeared after the rain. Everyone stopped to look at the colorful sky. The children counted the colors and tried to find the end of the rainbow."
+    "text": "A beautiful rainbow appeared after the rain. Everyone stopped to look at the colorful sky.",
+    "text_ka": "წვიმის შემდეგ გამოჩნდა ლამაზი ცისარტყელა. ყველა გაჩერდა ფერადი ცის სანახავად."
   },
   {
     "id": 45,
-    "text": "The little mouse found a piece of cheese in the kitchen. It carried the cheese back to its tiny home. Along the way, it stopped twice to make sure the room was safe."
+    "text": "The little mouse found a piece of cheese in the kitchen. It carried the cheese back to its tiny home.",
+    "text_ka": "პატარა თაგვმა იპოვა ყველის ნაჭერი სამზარეულოში. მან წაიღო ყველი უკან თავის პატარა სახლში."
   },
   {
     "id": 46,
-    "text": "The children visited the zoo on a warm day. They watched the monkeys climb and the elephants eat. Before going home, they stopped to see the colorful parrots."
+    "text": "The children visited the zoo on a warm day. They watched the monkeys climb and the elephants eat.",
+    "text_ka": "ბავშვები თბილ დღეს ესტუმრნენ ზოოპარკს. ისინი უყურებდნენ, როგორ ცოცავდნენ მაიმუნები და ჭამდნენ სპილოები."
   },
   {
     "id": 47,
-    "text": "Mark found a smooth stone near the river. He painted it blue and gave it to his sister. She loved the little gift and placed it on her desk in her bedroom."
+    "text": "Mark found a smooth stone near the river. He painted it blue and gave it to his sister.",
+    "text_ka": "მარკმა იპოვა გლუვი ქვა მდინარის მახლობლად. მან შეღება ის ლურჯად და აჩუქა თავის დას."
   },
   {
     "id": 48,
-    "text": "The wind blew gently through the garden. The colorful flowers moved from side to side. Bees flew between the flowers while the children sat nearby and enjoyed the fresh air."
+    "text": "The wind blew gently through the garden. The colorful flowers moved from side to side.",
+    "text_ka": "ქარი ნაზად ქროდა ბაღში. ფერადი ყვავილები მოძრაობდნენ გვერდიდან გვერდზე."
   },
   {
     "id": 49,
-    "text": "Anna helped her father wash the car. They used a bucket of water and a soft yellow sponge. When the car was clean, they dried it with large towels."
+    "text": "Anna helped her father wash the car. They used a bucket of water and a soft yellow sponge.",
+    "text_ka": "ანა დაეხმარა მამამისს მანქანის გარეცხვაში. მათ გამოიყენეს წყლიანი ვედრო და რბილი ყვითელი ღრუბელი."
   },
   {
     "id": 50,
-    "text": "The children sat under a large tree after lunch. They shared stories, played games, and enjoyed the sunny afternoon. Before going home, they cleaned the area and put their toys away."
+    "text": "The children sat under a large tree after lunch. They shared stories, played games, and enjoyed the sunny afternoon.",
+    "text_ka": "ლანჩის შემდეგ ბავშვები დასხდნენ დიდი ხის ქვეშ. მათ გააზიარეს ისტორიები, ითამაშეს თამაშები და ისიამოვნეს მზიანი შუადღით."
   }
 ]
