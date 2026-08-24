@@ -14,14 +14,26 @@
   </head>
   <body>
     <div id="app">
-      <!-- Floating Mute Button -->
-      <button id="mute-btn" class="control-btn" style="position: fixed; top: 20px; right: 20px; width: 50px; font-size: 20px; z-index: 100;">🔊</button>
+      <!--  Mute Button -->
+      <button
+        id="mute-btn"
+        class="control-btn"
+        style="
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          width: 50px;
+          font-size: 20px;
+          z-index: 100;
+        "
+      >
+        🔊
+      </button>
 
       <div class="classroom-container">
-        <!-- Top Text Box -->
         <div class="text-box-container">
           <div id="text-display" class="text-display">
-            <!-- Text will be injected here by JS -->
+            <!-- Text  here  -->
           </div>
         </div>
 
@@ -29,8 +41,10 @@
         <div class="controls-container">
           <button id="restart-btn" class="control-btn">Restart</button>
           <button id="random-btn" class="control-btn">Random Text</button>
-          <button id="lang-btn" class="control-btn">Lang: </button>
-          <button id="pdf-btn" class="control-btn hidden">View Certificate</button>
+          <button id="lang-btn" class="control-btn">Lang:</button>
+          <button id="pdf-btn" class="control-btn hidden">
+            View Certificate
+          </button>
         </div>
 
         <!-- Character and Messages Overlay (Hidden by default) -->
@@ -56,6 +70,7 @@
     <!-- Hidden Certificate for PDF -->
     <div id="certificate" class="certificate-container">
       <div class="cert-border-inner">
+        <button id="close-cert-btn" class="close-btn">❌</button>
         <h1 class="cert-title">🌟 Typing Owl Certificate 🌟</h1>
         <p class="cert-subtitle">
           This certifies that you are an AMAZING typist! 🏆
@@ -65,7 +80,13 @@
         </div>
         <div class="cert-footer">
           <p>Keep up the great work, superstar! 🦉✨</p>
-          <button id="print-cert-btn" class="control-btn" style="margin-top: 20px; font-size: 20px;">🖨️ Print Certificate</button>
+          <button
+            id="print-cert-btn"
+            class="control-btn"
+            style="margin-top: 20px; font-size: 20px"
+          >
+            🖨️ Print Certificate
+          </button>
         </div>
       </div>
     </div>

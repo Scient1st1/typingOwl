@@ -402,6 +402,23 @@ body {
   align-items: center;
   padding: 30px;
   box-sizing: border-box;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
 }
 
 .cert-title {
@@ -459,7 +476,7 @@ body {
     border: none;
     box-shadow: none;
   }
-  #print-cert-btn {
+  #print-cert-btn, #close-cert-btn {
     display: none !important;
   }
 }
