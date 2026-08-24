@@ -382,7 +382,7 @@ function showOwlSuccess(accuracy) {
     "drop-shadow(0 10px 15px rgba(0,255,0,0.4)) hue-rotate(30deg) brightness(1.2)";
   owlImage.classList.remove("owl-shake");
   owlImage.classList.add("owl-smile");
-  speechBubble.textContent = `Awesome Job! Accuracy: ${accuracy}%`;
+  speechBubble.textContent = `Awesome Job! Score: ${accuracy} points from 100`;
   speechBubble.className = "speech-bubble success";
   owlOverlay.classList.remove("hidden");
   pdfBtn.classList.remove("hidden");
@@ -471,6 +471,7 @@ function restart() {
   isErrorState = false;
   isSuccessState = false;
   pdfBtn.classList.add("hidden");
+  pdfBtn.textContent = "View Certificate";
   hideOwl();
   initTextDisplay();
 }
@@ -490,36 +491,25 @@ function generatePDF() {
   );
   const certEl = document.getElementById("certificate");
   document.getElementById("cert-accuracy").textContent =
-    `🎯 Accuracy: ${accuracy}%`;
+    `🎯 Score: ${accuracy} points from 100`;
 
-  // Clone to guarantee rendering in html2pdf without disrupting the hidden original
-  const clone = certEl.cloneNode(true);
-  clone.id = "certificate-clone";
-  clone.style.display = "flex";
-  clone.style.position = "fixed";
-  clone.style.top = "0";
-  clone.style.left = "0";
-  clone.style.zIndex = "-9999";
-  document.body.appendChild(clone);
-
-  const opt = {
-    margin: 0,
-    filename: "typing_owl_certificate.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-  };
-
-  html2pdf()
-    .set(opt)
-    .from(clone)
-    .save()
-    .then(() => {
-      document.body.removeChild(clone);
-    });
+  // Just show the certificate on screen as a modal
+  certEl.style.display = "flex";
 }
 
+// Allow user to click anywhere on the certificate to close it, except the print button
+document.getElementById("certificate").addEventListener("click", function(e) {
+  if (e.target.id !== "print-cert-btn") {
+    this.style.display = "none";
+  }
+});
+
+document.getElementById("print-cert-btn").addEventListener("click", function() {
+  window.print();
+});
+
 restartBtn.addEventListener("click", restart);
+
 randomBtn.addEventListener("click", loadRandomText);
 langBtn.addEventListener("click", toggleLanguage);
 pdfBtn.addEventListener("click", generatePDF);
@@ -538,7 +528,34 @@ window.addEventListener("keydown", (e) => {
   handleInput(e.key);
 });
 
+let isMuted = true; // Start muted to bypass browser autoplay restrictions
+const bgAudio = new Audio("/Bell Ding Level.mp3");
+bgAudio.loop = true;
+bgAudio.volume = 0.15; // Lower sound
+bgAudio.muted = true;  // Mute audio object explicitly
+
+// Just start it immediately! Because it is muted, the browser allows this.
+bgAudio.play().catch(err => console.log("Autoplay blocked by browser. Will start on first interaction."));
+
+const muteBtn = document.getElementById("mute-btn");
+muteBtn.textContent = "🔇"; // Start with muted icon
+
+muteBtn.addEventListener("click", () => {
+  isMuted = !isMuted;
+  bgAudio.muted = isMuted;
+  muteBtn.textContent = isMuted ? "🔇" : "🔊";
+  if (!isMuted && bgAudio.paused) bgAudio.play().catch(()=>{}); 
+});
+
+// Fallbacks: If browser blocks the immediate play above, 
+// this guarantees it starts the second they touch the mouse or keyboard!
+window.addEventListener("click", () => {
+  if (bgAudio.paused && !isMuted) bgAudio.play().catch(()=>{});
+});
+
 window.addEventListener("keyup", (e) => {
+  if (bgAudio.paused && !isMuted) bgAudio.play().catch(()=>{});
+
   if (e.key === "Shift") {
     isShiftPressed = false;
     updateKeyboardVisuals();
