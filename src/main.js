@@ -503,11 +503,11 @@ function generatePDF() {
 }
 
 // Allow user to click anywhere on the certificate to close it, except the print button
-// document.getElementById("certificate").addEventListener("click", function(e) {
-//   if (e.target.id !== "print-cert-btn") {
-//     this.style.display = "none";
-//   }
-// });
+document.getElementById("certificate").addEventListener("click", function (e) {
+  if (e.target.id !== "print-cert-btn") {
+    this.style.display = "none";
+  }
+});
 
 // document.getElementById("print-cert-btn").addEventListener("click", function() {
 //   window.print();
