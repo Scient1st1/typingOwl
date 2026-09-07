@@ -28,7 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* Soft pastel background pattern */
   background-image:
     radial-gradient(#ffe0b2 15%, transparent 16%),
@@ -512,7 +512,8 @@ body {
     border: none;
     box-shadow: none;
   }
-  #print-cert-btn, #close-cert-btn {
+  #print-cert-btn,
+  #close-cert-btn {
     display: none !important;
   }
 }
@@ -524,30 +525,30 @@ body {
   #app {
     padding: 10px;
   }
-  
+
   .text-box-container {
     padding: 15px;
     margin-bottom: 15px;
   }
-  
+
   .text-display {
     font-size: 24px;
     min-height: 80px;
   }
-  
+
   .controls-container {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
   }
-  
+
   .control-btn {
     font-size: 16px;
     padding: 10px 16px;
     flex: 1 1 calc(50% - 20px);
     text-align: center;
   }
-  
+
   #mute-btn {
     top: 10px !important;
     right: 10px !important;
@@ -555,29 +556,29 @@ body {
     font-size: 16px !important;
     padding: 8px !important;
   }
-  
+
   .keyboard-container {
     transform: scale(0.7);
     transform-origin: top center;
     margin-bottom: -60px;
   }
-  
+
   .cert-border-inner {
     padding: 15px;
   }
-  
+
   .cert-title {
     font-size: 32px;
   }
-  
+
   .cert-subtitle {
     font-size: 18px;
   }
-  
+
   .cert-stats p {
     font-size: 24px;
   }
-  
+
   .cert-footer {
     font-size: 20px;
   }
@@ -588,35 +589,35 @@ body {
   .text-box-container {
     padding: 10px;
   }
-  
+
   .text-display {
     font-size: 18px;
     min-height: 60px;
   }
-  
+
   .keyboard-container {
     transform: scale(0.38); /* Fit inside 320px screens */
     transform-origin: top center;
     margin-bottom: -110px;
   }
-  
+
   .certificate-container {
     width: 98% !important;
     padding: 5px;
   }
-  
+
   .cert-title {
     font-size: 24px;
   }
-  
+
   .cert-subtitle {
     font-size: 14px;
   }
-  
+
   .cert-stats p {
     font-size: 18px;
   }
-  
+
   .control-btn {
     font-size: 14px;
     padding: 8px 12px;
