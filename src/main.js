@@ -503,15 +503,15 @@ function generatePDF() {
 }
 
 // Allow user to click anywhere on the certificate to close it, except the print button
-document.getElementById("certificate").addEventListener("click", function(e) {
-  if (e.target.id !== "print-cert-btn") {
-    this.style.display = "none";
-  }
-});
+// document.getElementById("certificate").addEventListener("click", function(e) {
+//   if (e.target.id !== "print-cert-btn") {
+//     this.style.display = "none";
+//   }
+// });
 
-document.getElementById("print-cert-btn").addEventListener("click", function() {
-  window.print();
-});
+// document.getElementById("print-cert-btn").addEventListener("click", function() {
+//   window.print();
+// });
 
 restartBtn.addEventListener("click", restart);
 
@@ -537,10 +537,16 @@ let isMuted = true; // Start muted to bypass browser autoplay restrictions
 const bgAudio = new Audio("/Bell Ding Level.mp3");
 bgAudio.loop = true;
 bgAudio.volume = 0.15; // Lower sound
-bgAudio.muted = true;  // Mute audio object explicitly
+bgAudio.muted = true; // Mute audio object explicitly
 
 // Just start it immediately! Because it is muted, the browser allows this.
-bgAudio.play().catch(err => console.log("Autoplay blocked by browser. Will start on first interaction."));
+bgAudio
+  .play()
+  .catch((err) =>
+    console.log(
+      "Autoplay blocked by browser. Will start on first interaction.",
+    ),
+  );
 
 const muteBtn = document.getElementById("mute-btn");
 muteBtn.textContent = "🔇"; // Start with muted icon
@@ -549,17 +555,17 @@ muteBtn.addEventListener("click", () => {
   isMuted = !isMuted;
   bgAudio.muted = isMuted;
   muteBtn.textContent = isMuted ? "🔇" : "🔊";
-  if (!isMuted && bgAudio.paused) bgAudio.play().catch(()=>{}); 
+  if (!isMuted && bgAudio.paused) bgAudio.play().catch(() => {});
 });
 
-// Fallbacks: If browser blocks the immediate play above, 
+// Fallbacks: If browser blocks the immediate play above,
 // this guarantees it starts the second they touch the mouse or keyboard!
 window.addEventListener("click", () => {
-  if (bgAudio.paused && !isMuted) bgAudio.play().catch(()=>{});
+  if (bgAudio.paused && !isMuted) bgAudio.play().catch(() => {});
 });
 
 window.addEventListener("keyup", (e) => {
-  if (bgAudio.paused && !isMuted) bgAudio.play().catch(()=>{});
+  if (bgAudio.paused && !isMuted) bgAudio.play().catch(() => {});
 
   if (e.key === "Shift") {
     isShiftPressed = false;
