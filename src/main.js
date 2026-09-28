@@ -266,17 +266,20 @@ function handleInput(key) {
   const expectedChar = targetText[currentIndex];
 
   let mappedKey = key;
+  // If typing in Georgian using an English layout
   if (currentLang === "ka" && !/[ა-ჰ]/.test(key)) {
-    if ((key >= "A" && key <= "Z") || isShiftPressed || isVirtualShift) {
+    // Only apply Shift mapping if Shift is physically/virtually held. Ignore CapsLock capitalization.
+    if (isShiftPressed || isVirtualShift) {
       mappedKey =
         enToKaShift[key.toLowerCase()] || enToKaBase[key.toLowerCase()] || key;
     } else {
       mappedKey = enToKaBase[key.toLowerCase()] || key;
     }
   } else if (currentLang === "en") {
+    // Only apply manual uppercase for virtual shift in English
     if (
       key.length === 1 &&
-      (isShiftPressed || isVirtualShift) &&
+      isVirtualShift &&
       key >= "a" &&
       key <= "z"
     ) {
@@ -533,41 +536,16 @@ window.addEventListener("keydown", (e) => {
   handleInput(e.key);
 });
 
-let isMuted = true; // Start muted to bypass browser autoplay restrictions
-const bgAudio = new Audio("/Bell Ding Level.mp3");
-bgAudio.loop = true;
-bgAudio.volume = 0.15; // Lower sound
-bgAudio.muted = true; // Mute audio object explicitly
-
-// Just start it immediately! Because it is muted, the browser allows this.
-bgAudio
-  .play()
-  .catch((err) =>
-    console.log(
-      "Autoplay blocked by browser. Will start on first interaction.",
-    ),
-  );
-
-const muteBtn = document.getElementById("mute-btn");
-muteBtn.textContent = "🔇"; // Start with muted icon
-
-muteBtn.addEventListener("click", () => {
-  isMuted = !isMuted;
-  bgAudio.muted = isMuted;
-  muteBtn.textContent = isMuted ? "🔇" : "🔊";
-  if (!isMuted && bgAudio.paused) bgAudio.play().catch(() => {});
-});
-
-// Fallbacks: If browser blocks the immediate play above,
-// this guarantees it starts the second they touch the mouse or keyboard!
-window.addEventListener("click", () => {
-  if (bgAudio.paused && !isMuted) bgAudio.play().catch(() => {});
-});
-
 window.addEventListener("keyup", (e) => {
-  if (bgAudio.paused && !isMuted) bgAudio.play().catch(() => {});
-
   if (e.key === "Shift") {
+    isShiftPressed = false;
+    updateKeyboardVisuals();
+  }
+});
+
+// Reset shift state if window loses focus (e.g. alt-tab) to prevent it getting stuck
+window.addEventListener("blur", () => {
+  if (isShiftPressed) {
     isShiftPressed = false;
     updateKeyboardVisuals();
   }
@@ -577,7 +555,6 @@ window.addEventListener("keyup", (e) => {
 const textBoxContainer = document.querySelector(".text-box-container");
 textBoxContainer.addEventListener("click", () => {
   mobileInput.focus();
-  startAudio(); // Start audio when they tap the text box
 });
 
 mobileInput.addEventListener("input", (e) => {

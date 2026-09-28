@@ -137,12 +137,6 @@ body {
   box-shadow: 0 4px 0 #f57c00;
   transition: all 0.1s ease;
 }
-#mute-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .control-btn:active {
   transform: translateY(4px);
   box-shadow: 0 0 0 #f57c00;
@@ -547,14 +541,6 @@ body {
     padding: 10px 16px;
     flex: 1 1 calc(50% - 20px);
     text-align: center;
-  }
-
-  #mute-btn {
-    top: 10px !important;
-    right: 10px !important;
-    width: 40px !important;
-    font-size: 16px !important;
-    padding: 8px !important;
   }
 
   .keyboard-container {
